@@ -1,0 +1,153 @@
+html, body{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+.backgroundtable  {border-collapse:collapse;border-spacing:0;width : 100%; height: 100%}
+.backgroundtable td{ font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.backgroundtable th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.backgroundtable .backgroundtable-yw4l{vertical-align:top}
+#leftTopSide { width: 10%; background-color: #555555}
+#TableNameSide {width : 90%}
+
+.button {
+    background-color : inherit;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    width: 100%; height: 100%
+}
+#onhoverbutton {width: 100%; height: 100%} /* Black */
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#overlay2 {
+    position: fixed;
+    display: none;
+    width: 15%;
+    height: 10%;
+    top: 0;
+    left: 15%;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+#loginPop {
+    position: fixed;
+    display: none;
+    width: 35%;
+    height: 20%;
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text{
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    width : 100%;
+}
+
+/* Style the tab */
+div.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 100px;
+}
+
+div.tab2 {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #555555;
+    width: 100%;
+    height: 100px;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+div.tab2 button {
+    display: block;
+    background-color: #555555;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Change background color of buttons on hover */
+div.tab2 button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+div.tab2 button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 0px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-left: none;
+    height: 100%;
+    display: none;
+}

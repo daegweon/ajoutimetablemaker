@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
-
 /* GET home page. */
+
 router.get('/', function(req, res, next) {
-    res.render('login');
+
 });
 
-router.get('/test', function (req, res) {
-    res.json({test: 'hello'});
+router.post('/', function (req, res, next) {
+    var id=req.body.id;
+    res.render('mainpage',{id:id});
 });
 
 module.exports = router;

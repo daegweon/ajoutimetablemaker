@@ -4,21 +4,17 @@ html
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
 
     body
-        p This form will be submitted using the GET method:
-        form(action='/', target='_blank', method='post')
-            | First name:
+        form(action='/home', method='post')
+            | Id:
             br
-            input(type='text', name='firstname', value='Mickey')
+            input(type='text', name='id')
             br
-            |   Last name:
+            |   Password:
             br
-            input(type='text', name='lastname', value='Mouse')
+            input(type='password', name='password')
             br
             br
-            input(type='submit', value='Submit')
+            input(type='submit', value='Submit', id='login-btn')
         p
             | After you submit, notice that the form values is visible in the address bar of the new browser tab.
-
-        button(id='test-btn')
-        h1(id='test-h1')
-        script(src='/javascripts/tmp.js')
+        script(src='javascripts/tmp.js')
