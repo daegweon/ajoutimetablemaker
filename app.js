@@ -6,12 +6,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var users = require('./routes/users');
-var index=require('./routes/index')
+var index=require('./routes/index');
 var login=require('./routes/login');
 
 var app = express();
-
 // view engine setup
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/test', {useMongoClient:true}); // 기본 설정에 따라 포트가 상이 할 수 있습니다.
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+	console.log("mongo db connection OK.");
+});
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

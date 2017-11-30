@@ -1,8 +1,8 @@
 class TempTimeTable{
 	makeRandom(ClassList){
 		//need special process
-		this.ResultClassList = ~~;
-		this.Table_id = ~~;	
+	//	this.ResultClassList = ~~;
+	//	this.Table_id = ~~;	
 	}
 	getTimeTable(){
 	}
