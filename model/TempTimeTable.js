@@ -1,5 +1,8 @@
 class TempTimeTable{
-	makeRandom(ScehduledClassList){
+	makeRandom(ClassList){
+		//need special process
+		this.ResultClassList = ~~;
+		this.Table_id = ~~;	
 	}
 	getTimeTable(){
 	}
