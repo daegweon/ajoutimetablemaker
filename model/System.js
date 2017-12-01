@@ -6,6 +6,9 @@ class System{
 		this.cnt = 1;
 		this.DBhand = new DBHandler();
 	}
+	CreateClassDB(){
+		DBHand.createClass();
+	}
 	CreateTimeTable(){
 		this.requestTimetable = new RequestTimeTable();
 		requestTimetable.create();
@@ -18,7 +21,6 @@ class System{
 		var c = a+this.cnt;
 		a++;
 		this.cnt++;
-		this.DBhand.createClass();
 		return c;
 	}
 	selectDetailArea(Detailed_Type){
