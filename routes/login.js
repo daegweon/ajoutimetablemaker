@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function (req, res, next) {
     //var id=req.body.id;
 	system = new System();
-	var id =system.selectArea(113);
+	var id =req.body.id;
 	res.render('mainpage',{id:id});
 });
 
