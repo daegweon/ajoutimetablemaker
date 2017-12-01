@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        link(type='text/css', rel='stylesheet', href='stylesheets/logincss.css')
+
+    body
+        div#loginDiv
+            p#title
+                | ATM
+            form(action='/home', method='post')
+                br
+                | ID
+                br
+                input(type='text', name='id')
+                br
+                |   PASSWORD
+                br
+                input(type='password', name='password')
+                br
+                br
+                input(type='submit', value='Submit', id='login-btn')
+        //p
+            | After you submit, notice that the form values is visible in the address bar of the new browser tab.
+        script(src='javascripts/tmp.js')

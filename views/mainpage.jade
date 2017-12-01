@@ -1,0 +1,44 @@
+//
+   Created by KimHeeYeon on 2017. 11. 30..
+
+doctype html
+html
+    head
+        // Koream Import
+        meta(charset='utf-8')
+        title  AjouTimeTableMaker
+        link(type='text/css', rel='stylesheet', href='stylesheets/maincss.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    body
+        table.backgroundtable(cellspacing='0', cellpadding='0')
+            tr.tableTR(style="height:10%")
+                th#leftTopSide.backgroundtable-yw4l(onclick='on()')
+                    div MENU
+                th#TableNameSide.backgroundtable-yw4l TableName
+                th#UserName.backgroundtable-yw4l Userid: #{id}
+            tr(style="height:90%;")
+                td.backgroundtable-yw4l(colspan='3', onclick = 'clickTable()', style="height:100%")
+                    | there will be table
+        #overlay
+            #text
+                .tab
+                    button.tablinks(onclick='logout(event)') Logout
+                    button#makeTable.tablinks(onclick="openCity(event, 'Make')") 시간표작성
+                    button.tablinks(onclick="openCity(event, 'Popular')") 인기과목
+        #overlay2
+            #timetable
+                .tab2
+                    #Login.tabcontent
+                        p Login
+                    #Make.tabcontent
+                        button#recommend.makeTable 추천
+                        button#own.makeTable 스스로
+                    #Popular.tabcontent
+                        p Popular
+        #loginPop
+            #text2
+                .tab2
+                    #LoginSection
+                        p Login
+        script(type='text/javascript', src='javascripts/mainjs.js')
+
