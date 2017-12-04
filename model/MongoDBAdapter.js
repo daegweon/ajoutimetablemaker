@@ -53,7 +53,7 @@ class MongoDBAdapter{
 		rtt.resultClassList =resultClassList;
 		rtt.user_id = user_idl
 		rtt.table_name = table_name;
-		rtt.sabe();
+		rtt.save();
 	}
 	selectClass(className){
 		var classList = null;
