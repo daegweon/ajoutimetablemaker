@@ -1,16 +1,19 @@
 var Class = require('./Class.js');
 var fs = require('fs');
+var RTT = require('./ResultTimeTable.js');
 var path = require('path');
 var filepath = path.join(__dirname,'major.txt');
+
 class MongoDBAdapter{
 
-	createClass(){
+		createClass(){
 	
-		var data=fs.readFileSync(filepath, 'utf8');
+		/*var data=fs.readFileSync(filepath, 'utf8');
 		//console.log(data);
 		var starr = data.split('\n');
 		console.log(starr.length);
-		var c= null;
+		var cnt=1;
+		var ccc=null;
 		for(var i =1; i <starr.length;i++)
 		{
 			var cl = new Class();
@@ -29,35 +32,65 @@ class MongoDBAdapter{
 			a = a+ 7;
 			cl.LectureRoom=ds[a];
 			cl.Count=0;
-			cl.save();
-		}
-		while(c==null){}
-		Class.find(function(err,classes)
-		{
-			ccc = classes;
-			console.log(classes);
-		});
-		console.log(ccc);
+			cl.save(function(err){
+				console.log(err);
+			});
+			console.log(i);
+			
+		}*/
+			Class.find(function(err,classes){
+				//console.log(classes);
+				console.log(classes[0].className);
+				var a =JSON.stringify(classes);
+				var b = JSON.parse(a);
+				console.log(b[0].className);
+				console.log(a[0]);
+			})
 	}
+
 	saveResultTable(resultClassList, user_id, table_name){
+		var rtt = new RTT();
+		rtt.resultClassList =resultClassList;
+		rtt.user_id = user_idl
+		rtt.table_name = table_name;
+		rtt.sabe();
+	}
+	selectClass(className){
+		var classList = null;
+		Class.find({ className : className}, function(err, classes){
+			classList = classes;
+		})
+		var i=0;
+		while(i<30000000){
+			i++;
+		}
+		return classList;
+		
 	}
 	requestDetailCategoryList(Category_Type){
 	
-		var classList = null;
+		var detailList = null;
 		Class.find({category_Type : Category_Type}, function(err,classes){
-		classList= classes;
+		detailList= classes;
 		});
-		while(classList == null)
-		{;}
-		return classList;
+		var i=0;
+		while(i<30000000){
+			i++;
+		}
+		return detailList;
 
 
 	}
 	requestClassList(Detailed_Type){
 		var a=null;
 		Class.find({detailed_Type : Detailed_Type}, function(err, classes){
-		return classes;
+			a = classes;
 		});
+		var i=0;
+		while(i<30000000){
+			i++;
+		}
+		return a;
 
 	}
 }

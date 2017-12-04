@@ -8,9 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    //var id=req.body.id;
+    var id=req.body.id;
 	system = new ATM();
-	system.CreateClassDB();
+	var a=system.CreateClassDB();
+	console.log(a);
 	res.render('mainpage',{id:id});
 });
 
