@@ -4,6 +4,9 @@ html, body{
     padding:0;
     margin:0;
 }
+div{
+    width: 100%;
+}
 
 .tg  {border-collapse:collapse;border-spacing:0;width:100%;height:90%;}
 .tg td{font-family:Arial, sans-serif;font-size:20px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
@@ -32,5 +35,6 @@ html, body{
     vertical-align: center;
 }
 #cancel{background-color:#343434;color:#efefef;vertical-align:top; height : 100%; width:50%;}
-#confirm{background-color:#680100;color:#efefef;vertical-align:top; height : 100%; width:50%;}
+#confirm{background-color:#680100;color:#efefef; height : 30px; width:100%;font-size: 14px;vertical-align: center;}
+#checkboxform, #category_name{width: 100%; height: 100%;}
 

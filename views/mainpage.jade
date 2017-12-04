@@ -13,12 +13,26 @@ html
         table.backgroundtable(cellspacing='0', cellpadding='0')
             tr.tableTR(style="height:10%")
                 th#leftTopSide.backgroundtable-yw4l(onclick='on()')
-                    div MENU
-                th#TableNameSide.backgroundtable-yw4l TableName
-                th#UserName.backgroundtable-yw4l Userid: #{id}
-            tr(style="height:90%;")
-                td.backgroundtable-yw4l(colspan='3', onclick = 'clickTable()', style="height:100%")
-                    | there will be table
+                    div <b>MENU
+                th#TableNameSide.backgroundtable-yw4l(onclick = 'clickTable()') <b>"TableName"
+                th#UserName.backgroundtable-yw4l(onclick = 'clickTable()') <b>ID</b> #{id}
+
+                td(colspan='3',onclick = 'clickTable()')
+                    table#dynamicTable(border='1', align='center')
+                        thead
+                            tr(style='height:100px')
+                                th.tg-yw4l(style='color:#424a56;width:100px;border-width:medium;') <b><i>Time/Day
+                                th.tg-yw4l(style= 'color:#424a56;font-size:20px; border-width:medium;') <b><i>Mon
+                                th.tg-yw4l(style= 'color:#424a56;font-size:20px; border-width:medium;') <b><i>Tue
+                                th.tg-yw4l(style= 'color:#424a56;font-size:20px; border-width:medium;') <b><i>Wen
+                                th.tg-yw4l(style= 'color:#424a56;font-size:20px; border-width:medium;') <b><i>Thu
+                                th.tg-yw4l(style= 'color:#424a56;font-size:20px; border-width:medium;') <b><i>Fri
+                    tbody
+                        tr
+                input#row_num(type='number', name='row_num', size='10', maxlength='5', value='20', style="height:30px; width:200px")
+                input(type='button', value='add', onclick='add()')
+                td.backgroundtable-yw4l(colspan='2', onclick = 'clickTable()', style="height:100%")
+
         #overlay
             #text
                 .tab

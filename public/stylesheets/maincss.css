@@ -9,9 +9,28 @@ html, body{
 .backgroundtable td{ font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .backgroundtable th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .backgroundtable .backgroundtable-yw4l{vertical-align:middle}
-#leftTopSide { width: 8%; background-color: #555555}
-#TableNameSide {width : 85%;}
-#UserName {width : 7%;}
+#leftTopSide { width: 7%; background-color: #c0cce0;
+    transition: 0.3s; border-width : 3px; border-color : #aaaaaa; color:#424a56;}
+#leftTopSide:hover{
+    background-color: #dadee5;
+    color: #e2a183;
+
+}
+#TableNameSide {width : 85%; font-size: 40px; color:#424a56; background-color: #c0cce0;  border-color : #aaaaaa;border-width : 3px}
+#UserName {width : 7%; background-color: #c0cce0; border-width : 3px;border-color : #aaaaaa; color:#424a56;}
+#dynamicTable {
+    width: 86.7%;
+    height: 100%;
+    background: url('http://postfiles12.naver.net/20160722_11/taem_iny_1469115284866TrbcR_PNG/%B6%F3%C0%CC%BE%F0_%B9%E8%B0%E6%C8%AD%B8%E9_08.png?type=w1') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+#dynamicTable thead tr{text-align:center; background-color: #eaebed;opacity: 0.75;}
+#dynamicTable tbody tr{text-align:center;
+    background-color:#f2f4f9;opacity: 0.75;}
 
 .tableTR {
     vertical-align: middle;
@@ -20,6 +39,9 @@ html, body{
     margin-right: auto;
     width : 100%;
 }
+
+
+.tg-yw4l{vertical-align:center;}
 
 .button {
     background-color : inherit;
@@ -88,7 +110,7 @@ html, body{
 div.tab {
     float: left;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #91a4b7;
     width: 100%;
     height: 100px;
 }
@@ -96,7 +118,7 @@ div.tab {
 div.tab2 {
     float: left;
     border: 1px solid #ccc;
-    background-color: #555555;
+    background-color: #ccc;
     width: 100%;
     height: 100px;
 }
@@ -108,7 +130,7 @@ div.tab button {
     color: black;
     padding: 22px 16px;
     width: 100%;
-    border: none;
+    border-width: thin;
     outline: none;
     text-align: left;
     cursor: pointer;
@@ -118,11 +140,11 @@ div.tab button {
 
 div.tab2 button {
     display: block;
-    background-color: #555555;
+    background-color: #ccc;
     color: black;
     padding: 22px 16px;
     width: 100%;
-    border: none;
+    border-width: thin;
     outline: none;
     text-align: left;
     cursor: pointer;
@@ -142,19 +164,19 @@ div.tab button.active {
 
 /* Change background color of buttons on hover */
 div.tab2 button:hover {
-    background-color: #ddd;
+    background-color: #555555;
 }
 
 /* Create an active/current "tab button" class */
 div.tab2 button.active {
-    background-color: #ccc;
+    background-color: #ddd;
 }
 
 /* Style the tab content */
 .tabcontent {
     float: left;
     padding: 0px 0px;
-    border: 1px solid #ccc;
+    border: 3px solid #ccc;
     width: 100%;
     border-left: none;
     height: 100%;

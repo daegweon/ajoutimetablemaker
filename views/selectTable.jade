@@ -1,0 +1,84 @@
+doctype html
+html
+    head
+        // Koream Import
+        meta(charset='utf-8')
+        title  AjouTimeTableMaker
+        link(type='text/css', rel='stylesheet', href='stylesheets/selectTableCss.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    body
+        .tab
+            button#selectTabl1.tablinks(onclick="openTable(event, 'Select1')") Select1
+            button#selectTabl2.tablinks(onclick="openTable(event, 'Select2')") Select2
+            button#selectTabl3.tablinks(onclick="openTable(event, 'Select3')") Select3
+            button#selectTabl4.tablinks(onclick="openTable(event, 'Select4')") Select4
+        #Select1.tabcontent
+            h3 This is Select1. To Select this TimeTable, Please press Confirm Button
+            table#dynamicTable(border='0', align='center')
+                thead
+                    tr(align='center')
+                        th.tg-yw4l 시간/요일
+                        th.tg-yw4l 월
+                        th.tg-yw4l 화
+                        th.tg-yw4l 수
+                        th.tg-yw4l 목
+                        th.tg-yw4l 금
+                tbody
+                    tr
+            input#row_num(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
+            input(type='button', value='add', onclick='add()')
+            td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
+        #Select2.tabcontent
+            h3 This is Select2. To Select this TimeTable, Please press Confirm Button
+            table#dynamicTable2(border='0', align='center')
+                thead
+                    tr(align='center')
+                        th.tg-yw4l2 시간/요일
+                        th.tg-yw4l2 월
+                        th.tg-yw4l2 화
+                        th.tg-yw4l2 수
+                        th.tg-yw4l2 목
+                        th.tg-yw4l2 금
+                tbody
+                    tr
+            input#row_num2(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
+            input(type='button', value='add', onclick='add()')
+            td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
+        #Select3.tabcontent
+            h3 This is Select3. To Select this TimeTable, Please press Confirm Button
+            table#dynamicTable3(border='0', align='center')
+                thead
+                    tr(align='center')
+                        th.tg-yw4l3 시간/요일
+                        th.tg-yw4l3 월
+                        th.tg-yw4l3 화
+                        th.tg-yw4l3 수
+                        th.tg-yw4l3 목
+                        th.tg-yw4l3 금
+                tbody
+                    tr
+            input#row_num3(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
+            input(type='button', value='add', onclick='add()')
+            td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
+        #Select4.tabcontent
+            h3 This is Select4. To Select this TimeTable, Please press Confirm Button
+            table#dynamicTable4(border='0', align='center')
+                thead
+                    tr(align='center')
+                        th.tg-yw4l4 시간/요일
+                        th.tg-yw4l4 월
+                        th.tg-yw4l4 화
+                        th.tg-yw4l4 수
+                        th.tg-yw4l4 목
+                        th.tg-yw4l4 금
+                tbody
+                    tr
+            input#row_num4(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
+            input(type='button', value='add', onclick='add()')
+            td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
+        div
+            table.tg
+                tr
+                    th#cancel.tg-7pe6(onclick='cancel()') CANCEL
+                    th#confirm.tg-vfn9(onclick='confirm()') CONFIRM
+        script(type='text/javascript', src='javascripts/selectTableJs.js')
