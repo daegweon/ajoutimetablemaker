@@ -2,7 +2,7 @@ var Class = require('./Class.js');
 var fs = require('fs');
 var path = require('path');
 var filepath = path.join(__dirname,'major.txt');
-class DBHandler{
+class MongoDBAdapter{
 
 	createClass(){
 	
@@ -10,6 +10,7 @@ class DBHandler{
 		//console.log(data);
 		var starr = data.split('\n');
 		console.log(starr.length);
+		var c= null;
 		for(var i =1; i <starr.length;i++)
 		{
 			var cl = new Class();
@@ -30,16 +31,34 @@ class DBHandler{
 			cl.Count=0;
 			cl.save();
 		}
+		while(c==null){}
 		Class.find(function(err,classes)
 		{
+			ccc = classes;
 			console.log(classes);
 		});
+		console.log(ccc);
 	}
 	saveResultTable(resultClassList, user_id, table_name){
 	}
 	requestDetailCategoryList(Category_Type){
+	
+		var classList = null;
+		Class.find({category_Type : Category_Type}, function(err,classes){
+		classList= classes;
+		});
+		while(classList == null)
+		{;}
+		return classList;
+
+
 	}
 	requestClassList(Detailed_Type){
+		var a=null;
+		Class.find({detailed_Type : Detailed_Type}, function(err, classes){
+		return classes;
+		});
+
 	}
 }
-module.exports = DBHandler;
+module.exports = MongoDBAdapter;

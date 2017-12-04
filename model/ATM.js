@@ -1,42 +1,26 @@
 var RequestTimeTable = require('./RequestTimeTable.js');
-var DBHandler = require('./DBHandler.js');
-var a =1;
-class System{
+var DBFactory = require('./DBFactory.js');
+class ATM{
 	constructor(){
-		this.cnt = 1;
-		this.DBhand = new DBHandler();
 	}
 	CreateClassDB(){
-		DBHand.createClass();
+		DBFactory.getMongoDBAdapter().createClass();
 	}
 	CreateTimeTable(){
 		this.requestTimetable = new RequestTimeTable();
-		requestTimetable.create();
+		this.requestTimetable.create();
 	}
 	selectCreateMode(Create_Mode){
 		this.requestTimetable.setCreateMode(Create_Mode);
 	}
 	selectArea(Category_Type){
-		//DBHandler.request~~;
-		var c = a+this.cnt;
-		a++;
-		this.cnt++;
-		return c;
+		return this.requestTimetable.requestDetailCategoryList(Category_Type)
 	}
 	selectDetailArea(Detailed_Type){
-		//DBHandler.reques~;
+		return this.requestTimetable.requestClassList(Detailed_Type);
 	}
 	selectClass(ClassNameList){
-		// need special process
-		var ClassList = new ArrayList;
-		var length = ClassNameList.length;
-		for(var i=0; i<length; i++)
-		{
-			//var tmp =DBHandler.searchClass(~~);
-			//for(var j=0;j<tmp.length;j++)
-				//ClassList.add(tmp.get(j));
-		}
-		this.requestTimetable.selectClass(ClassList);	
+		this.requestTimetable.selectClass(ClassNameList);
 	}
 	endSelection(){
 		return this.requestTimetable.endSelection();
@@ -45,10 +29,10 @@ class System{
 		this.requestTimetable.setClass(EssentialList, set_user_credit);
 	}
 	getTempTimeTable(){
-		this.requestTimetable.getTempTimeTable();
+		return this.requestTimetable.getTempTimeTable();
 	}
 	selectTimeTable(Table_id){
-		this.requestTimetable.selectTimeTable(Table_id);
+		return this.requestTimetable.selectTimeTable(Table_id);
 	}
 	changeClass(DeleteClass, ReplaceClass, Table_id){
 		this.requestTimetable.changeClass(DeleteClass, ReplaceClass, Table_id);
@@ -62,4 +46,4 @@ class System{
 	}
 	
 }
-module.exports=System;
+module.exports=ATM;

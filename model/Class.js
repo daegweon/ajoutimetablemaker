@@ -12,5 +12,4 @@ var classSchema = new Schema({
 		LectureRoom:String,
 		Count:Number
 	});
-
 module.exports = mongoose.model('class', classSchema);
