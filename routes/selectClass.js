@@ -57,16 +57,21 @@ router.post('/selectClass', function(req,res,next){
 	console.log('rotend');
 	res.end();
 })
-
+var tttt;
+router.get('/table', function(req,res,next)
+{
+	console.log('ttt'+tttt);
+	res.render('selectTable', tttt);
+})
 router.post('/table', function(req,res,next){
 	console.log('table'+req.body.EssentialList);
 
 	atm.setClass(req.body.EssentialList, req.body.set_user_credit);
 	console.log('tableend');
-	var tmp =atm.getTempTimeTable();
-	console.log('tmp'+tmp);
-	console.log(tmp.length + ""+ tmp[0].ResultClassList);
-	res.send(tmp);
+	tttt =atm.getTempTimeTable();
+	console.log('tmp'+tttt);
+	console.log(tttt.length + ""+ tttt[0].ResultClassList);
+	res.send(tttt);
 })
 
 module.exports = router;

@@ -208,6 +208,8 @@ function setClass(){
         url: "/select/table",
         data: { EssentialList : JSON.stringify(selectedEssentialList), set_user_credit : user_credit}
     }).done(function( msg ) {
+		console.log(msg);
+		window.location.replace('/select/table');
 		
     });
 }
