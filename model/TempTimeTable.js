@@ -4,7 +4,8 @@ class TempTimeTable{
 		//need special process
 	//	this.ResultClassList = ~~;
 	//	this.Table_id = ~~;
-		this.ResultClassList = SceduledClassList;
+		this.ResultClassList = ScheduledClassList;
+		console.log('tmps'+this.ResultClassList);
 		this.Table_id = cnt++;
 	}
 	getTimeTable(){

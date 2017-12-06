@@ -1,29 +1,6 @@
 var TempTimeTable = require("./TempTimeTable.js");
 var ResultTimeTable = require("./ResultTimeTable.js");
 var flag = false;
-function req(essenList,start_idx,tmplist){
-
-	var len = essenList.length;
-	if(start_idx == len) {
-		flag = true;
-		return tmplist;
-	}
-	for(var i= start_idx; i<len;i++)
-	{
-		var cnt=0;
-		for(var j = 0; j< tmplist.length;j++)
-			if(iscross(essenList[i], tmplist[j]))
-				cnt++;
-		if(cnt==0)
-		{
-			tmplist.push(essenList[i]);
-			var tt =req(essenList, i+1, tmplist);
-			if(flag == true)
-				return tt;
-		}
-	}
-	
-}
 function iscross(class1, class2){
 
 	if(class1.className == class2.className) return true;
@@ -68,18 +45,34 @@ function iscross(class1, class2){
 	}
 	return cnt>0?true:false;
 }
+function req(essenList,start_idx,tmplist){
+
+	var len = essenList.length;
+	if(start_idx == len) {
+		flag = true;
+		return tmplist;
+	}
+	for(var i= start_idx; i<len;i++)
+	{
+		var cnt=0;
+		for(var j = 0; j< tmplist.length;j++)
+			if(iscross(essenList[i], tmplist[j]))
+				cnt++;
+		if(cnt==0)
+		{
+			tmplist.push(essenList[i]);
+			var tt =req(essenList, i+1, tmplist);
+			if(flag == true)
+				return tt;
+		}
+	}
+	return tmplist;
+	
+}
 class TableCreator{
 	makeEmptyTimeTable(mongoDbAdapter){
 		this.tempTimeTableList = new Array();
 		this.resultTimeTable = new ResultTimeTable(mongoDbAdapter);
-	}
-	makeTimeTable(SelectedList, EssentialList, set_user_credit){
-		var classList = new Array();
-		// need special process
-		
-		var temptimeTable = new TempTimeTable();
-		temptimeTable.makeRandom(ScehduledClassList);
-		tempTimeTableList.push(temptimeTable);
 	}
 	selectTimeTable(Table_id){
 		for(var i=0; i< tempTimeTableList.length;i++)
@@ -96,10 +89,12 @@ class TableCreator{
 	}
 	makeTimeTable(SelectedList, EssentialList, set_user_credit){
 
+		console.log('tableCreator'+SelectedList)
 		// need special process
 		var tmpList = new Array();
 		var len = SelectedList.length;
 		var len2 = EssentialList.length;
+		console.log('len' +len+'len2'+len2);
 
 		for(var i=0;i<len2;i++)
 		{
@@ -107,10 +102,13 @@ class TableCreator{
 				if(EssentialList[i] == SelectedList[j].className)
 					tmpList.push(SelectedList[j]);
 		}
+		console.log('make1'+tmpList.length);
 		for(var i=0; i< tmpList.length;i++)
 		{
 			flag = false;
+			console.log('make'+'start');
 			var classList = req(tmpList,i,new Array());
+			console.log('classlist'+classList);
 			var credit_sum=0;
 			for(var i=0;i<classList.length;i++)
 			{
@@ -126,7 +124,7 @@ class TableCreator{
 			else{
 				for(var i=0; i< SelectedList.length; i++){
 					var cnt=0;
-					for(var j =0; j< classList; j++)
+					for(var j =0; j< classList.length; j++)
 					{
 						if(iscross(SelectedList[i], classList[j]))
 							cnt++;
@@ -138,11 +136,15 @@ class TableCreator{
 					}
 				}
 			}
+			console.log('make clear'+classList);
 			var temptimeTable = new TempTimeTable();
 			temptimeTable.makeRandom(classList);
-			tempTimeTableList.push(temptimeTable);
-			if(temptimeTableList.length >4)break;
+			console.log('make temp');
+			this.tempTimeTableList.push(temptimeTable);
+			if(this.tempTimeTableList.length >4)break;
 		}
+		console.log('+++'+this.tempTimeTableList);
+		return this.tempTimeTableList;
 	}
 
 

@@ -54,13 +54,19 @@ router.post('/Detail', function(req,res,next){
 router.post('/selectClass', function(req,res,next){
 	console.log("rot"+req.body.classNameList);
 	atm.selectClass(req.body.classNameList);
+	console.log('rotend');
+	res.end();
 })
 
 router.post('/table', function(req,res,next){
-	atm.setClass(req.EssentialList, req.set_user_credit);
+	console.log('table'+req.body.EssentialList);
+
+	atm.setClass(req.body.EssentialList, req.body.set_user_credit);
+	console.log('tableend');
 	var tmp =atm.getTempTimeTable();
-	console.log(tmp);
-	res.render('selectTable', tmp);
+	console.log('tmp'+tmp);
+	console.log(tmp.length + ""+ tmp[0].ResultClassList);
+	res.send(tmp);
 })
 
 module.exports = router;

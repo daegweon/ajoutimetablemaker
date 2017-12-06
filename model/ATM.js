@@ -25,15 +25,17 @@ class ATM{
 		});
 	}
 	selectClass(ClassNameList){
-		this.requestTimetable.selectClass(ClassNameList);
+		this.requestTimetable.selectClass(JSON.parse(ClassNameList));
 	}
 	endSelection(){
 		return this.requestTimetable.endSelection();
 	}
 	setClass(EssentialList,set_user_credit){
+		console.log(EssentialList);
 		this.requestTimetable.setClass(EssentialList, set_user_credit);
 	}
 	getTempTimeTable(){
+		console.log('atmgetTemp');
 		return this.requestTimetable.getTempTimeTable();
 	}
 	selectTimeTable(Table_id){

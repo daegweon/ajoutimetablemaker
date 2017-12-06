@@ -137,9 +137,10 @@ function Check(form){
 	$.ajax({
 		type: 'POST',
 		url: '/select/selectClass',
-		data:{ classNameList : JSON.stringify(arr)},
-		dataType : 'json'
-	}).done(function(){});
+		data:{ classNameList : JSON.stringify(arr)}
+	}).done(function(){
+		console.log('check ok');
+	});
 
 	// inner ui change
     document.querySelector('#SelectedList').innerHTML = msg;
@@ -200,11 +201,12 @@ function setClass(){
     }
 
     var user_credit = document.getElementById('user_set_credit').value;
-
+	console.log(user_credit);
+	console.log(selectedEssentialList);
     $.ajax({
         type: "POST",
         url: "/select/table",
-        data: { EssentialList : selectedEssentialList, set_user_credit : user_credit}
+        data: { EssentialList : JSON.stringify(selectedEssentialList), set_user_credit : user_credit}
     }).done(function( msg ) {
 		
     });

@@ -4,10 +4,10 @@ var DBFactory = require("./DBFactory.js");
 //var makeTimetableStrategyFactory = require("./makeTimetableStrategyFactory.js");
 class RequestTimetable{
 	constructor(){
-		this.selectedList = new Array();
 	}
 	create(){
 		this.tableCreator = new TableCreator();	
+		this.selectedList = new Array();
 		this.mongoDBAdapter = new DBFactory().getMongoDBAdapter();
 		console.log(this.mongoDBAdapter);
 	}
@@ -51,15 +51,21 @@ class RequestTimetable{
 	  });
    }
    selectClass(ClassNameList){
+	   console.log('req'+ ClassNameList.length );
       var len = ClassNameList.length;
+	  var tmpList = new Array();
       for(var i=0; i< len;i++)
          {
-            this.mongoDBAdapter.selectClass(ClassNameList[i]).then(function(data){
+            var data2 =this.mongoDBAdapter.selectClass(ClassNameList[i]).then(function(data){
+
+				console.log('selectclass'+data.length);
 				for(var j=0;j<data.length;j++)
-					this.selectedList.push(data[j]);
+				 	tmpList.push(data[j]);
+				console.log('tmp'+tmpList);
+				return data;
 			});
          }
-
+	  this.selectedList = tmpList; 
    }
 
    endSelection(){
@@ -85,7 +91,9 @@ class RequestTimetable{
       this.set_user_credit = set_user_credit;
    }
    getTempTimeTable(){
-      return this.tableCreator.makeTimeTable(this.selectedList, this.EssentialList, this.set_user_credit);
+	   console.log('reqgetTemp');
+	   console.log('reqgetTemp' + this.selectedList.length);
+      return this.tableCreator.makeTimeTable(this.selectedList, JSON.parse(this.EssentialList), this.set_user_credit);
    }
    selectTimeTable(Table_id){
       return this.tableCreator.selectTimeTable(Table_id);

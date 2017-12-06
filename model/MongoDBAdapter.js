@@ -57,7 +57,7 @@ class MongoDBAdapter{
 	}
 	selectClass(className){
 		return Class.find({ className : className}).then(function(classes){
-		
+			console.log(classes.length);	
 			return classes;
 		})
 	}
