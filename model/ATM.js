@@ -4,7 +4,7 @@ class ATM{
 	constructor(){
 	}
 	CreateClassDB(){
-		DBFactory.getMongoDBAdapter().createClass();
+		new DBFactory().getMongoDBAdapter().createClass();
 	}
 	CreateTimeTable(){
 		this.requestTimetable = new RequestTimeTable();
@@ -14,10 +14,15 @@ class ATM{
 		this.requestTimetable.setCreateMode(Create_Mode);
 	}
 	selectArea(Category_Type){
-		return this.requestTimetable.requestDetailCategoryList(Category_Type)
+		return this.requestTimetable.requestDetailCategoryList(Category_Type).then(function(data){
+			return data;
+		});
 	}
 	selectDetailArea(Detailed_Type){
-		return this.requestTimetable.requestClassList(Detailed_Type);
+		return this.requestTimetable.requestClassList(Detailed_Type).then(function(data){
+			console.log(typeof data);
+			return data;
+		});
 	}
 	selectClass(ClassNameList){
 		this.requestTimetable.selectClass(ClassNameList);

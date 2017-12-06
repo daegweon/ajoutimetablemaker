@@ -1,6 +1,10 @@
 $('#login-btn').click(function () {
     $.ajax({
-        method: "GET",
+//<<<<<<< HEAD
+//        method: "GET",
+//=======
+        method: "POST",
+//>>>>>>> origin/HeeYeon
         url: "/home",
         data: { name: "John", location: "Boston" }
     })

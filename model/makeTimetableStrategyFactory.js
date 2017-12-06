@@ -1,15 +1,14 @@
 var RecommendSDAStrategy = require('./RecommendSDAStrategy.js');
-//var recommendCTTStrategy = require('./RecommendCTTStrategy.js');
+var RecommendCTTStrategy = require('./RecommendCTTStrategy.js');
 class makeTimetableStrategyFactory{
-	static getRecommendSDAStrategy(){
-		if(this.rsda ==null)
-			this.rsda = new RecommendSDAStrategy();
-		return this.rsda;
+
+	static getRecommendSDAStrategy(dbadapter){
+		
+		return new RecommendSDAStrategy(dbadapter);
 	}
-//	static getRecommendCTTStrategy(){
-//		if(this.rctt ==null)
-//			this.rctt = new RecommendCTTStrategy();
-//		return this.rctt;
-//	}
+	static getRecommendCTTStrategy(table){
+		return new RecommendCTTStrategy(table);
+	}
 }
-module.exports = makeTimetableStrategyFactory;
+
+module.exports= makeTimetableStrategyFactory;

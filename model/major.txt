@@ -1,53 +1,49 @@
-소프트웨어학과
-컴퓨터프로그램설계 F049 전공과목 3 3 정크리스틴(Kristin) 3 목5.5 목6.5 목7.5 팔328
-컴퓨터프로그램설계 F050 전공과목 3 3 황원준 3 금4 금5 금6 팔328 
-컴퓨터프로그램설계 F051 전공과목 3 3 황원준 3 목2.5 목3.5 목4.5 팔328
-컴퓨터프로그램설계 F052 전공과목 3 3 정태선 3 화4 화5 화6 팔328 
-컴퓨터프로그램설계 F053 전공과목 3 3 백호기 3 화4 화5 화6 팔333 
-컴퓨터프로그래밍 F046 전공과목 3 3 황원준 2 수B 금B 팔309 공학인증
-컴퓨터프로그래밍 F047 전공과목 3 3 김민구 2 월B 목B 팔325 공학인증
-컴퓨터프로그래밍 F048 전공과목 3 3 변광준 2 화A 금A 팔410 공학인증
-컴퓨터통신 F045 전공과목 3 3 조영종 2 월E 수E 팔409 공학인증
-컴퓨터네트워크 F070 전공과목 3 3 노병희 2 월C 수C 팔108 
-컴퓨터네트워크 F071 전공과목 3 3 노병희 2 월E 수E 팔309 공학인증, 자동녹화강의
-컴퓨터네트워크 F072 전공과목 3 3 PAULRAJIB 2 화E 금E 팔309 공학인증, 영어
-컴퓨터구조 F042 전공과목 3 3 안정섭 2 수D 금D 팔309
-컴퓨터구조 F043 전공과목 3 3 박승규 2 월C 수C 팔309
-컴퓨터구조 F044 전공과목 3 3 홍만표 2 월C 수C 팔325
-창의소프트웨어입문 F076 전공과목 3 3 최재영 2 월D 목D 팔309 공학인증
-창업실습2 F088 전공과목 3 3 윤대균 0 원101
-자료구조및실습 F030 전공과목 4 5 한경식 4 화A 금A 금8.5 금9.5 팔328 
-자료구조및실습 F031 전공과목 4 5 YenewondimSinshaw 4 월A 화8.5 화9.5 수A 팔328  
-영어자기주도프로젝트 F087 전공과목 3 3 최재영 0 다101 
-자기주도연구2 F039 전공과목 3 3 류기열 0 팔101 
-자기주도연구1 F041 전공과목 3 3 최영준 0 팔101 
-이산수학 F034 전공과목 3 3 고영은 2 화A 금A 팔409
-웹시스템설계 F038 전공과목 4 5 오상윤 4 화C 수3 수4 금C 팔328 공학인증
-운영체제 F078 전공과목 3 3 고정길 2 화B 목A 팔309 공학인증, 영어
-운영체제 F080 전공과목 3 3 고정길 2 화D 목C 팔309 공학인증, 영어
-오픈소스SW입문 F036 전공과목 3 3 안병현 3 수7 수8 수9 팔410 공학인증
-오픈소스SW입문 F037 전공과목 3 3 이환용 3 금1 금2 금3 팔111 공학인증
-알고리즘 F085 전공과목 3 3 손경아 2 화D 목C 팔1025 공학인증
-알고리즘 F086 전공과목 3 3 손경아 2 화B 목A 팔409 공학인증
-시스템프로그래밍 F066 전공과목 4 5 고영배 4 월B 월5 월6 목B 팔410 공학인증
-무선네트워크 F084 전공과목 4 5 임재성 4 수D 수7 수8 금D 팔409 공학인증
-디지털회로 F073 전공과목 4 5 김성수 4 월B 월7 월8 목B 팔409 공학인증
-디지털회로 F074 전공과목 4 5 PAULRAJIB 4 화C 수8.5 수9.5 금C 팔410 공학인증, 영어
-도메인분석및SW설계 F063 전공과목 3 3 이정태 2 월D 목D 팔409 공학인증, 자동녹화강의
-도메인분석및SW설계 F064 전공과목 3 3 정크리스틴(Kristin) 2 화C 금C 팔409 공학인증, 영어
-도메인분석및SW설계 F065 전공과목 3 3 정크리스틴(Kristin) 2 화E 금E 팔409 공학인증, 영어
-데이터베이스 F083 전공과목 3 3 정태선 2 화F 목E 팔325 공학인증, 자동녹화강의
-데이터베이스 F033 전공과목 3 3 변광준 2 화C 금C 팔325 공학인증
-계산이론 F082 전공과목 3 3 위규범 2 화F 목E 팔309 공학인증
-객체지향프로그래밍 F081 4 5 전공과목 류기열 4 화B 목A 목8.5 목9.5 팔328 공학인증, 공동
-객체지향프로그래밍 F062 4 5 전공과목 YenewondimSinshaw 4 월8.5 월9.5 화D 목C 팔325 공학인증,영어
-SW현장실습 F057 전공과목 3 3 이환용 0 현장 공학인증
-SW현장실습 F068 전공과목 3 3 이환용 0 현장 공학인증
-SW현장실습 F029 전공과목 3 3 이환용 0 현장 공학인증
-SW캡스톤디자인 F077 전공과목 6 9 윤대균 6 월F 월G 월H 목F 목G 목H 팔334 공학인증
-SW산업세미나 F035 전공과목 1 1 류기열 1 화F 팔107 공학인증
-IT집중교육2 F061 전공과목 6 8 최영준 8 수1 수2 수3 수4 수5 수6 수7 수8 종설101 공학인증
-IT집중교육1 F060 전공과목 6 8 이석원 8 월1 월2 월3 월4 월5 월6 월7 월8 종설101 공학인증
-IT전문영어 F001 전공과목 3 3 김나영 3 금1 금2 금3 종설101 공학인증, 영어, 
-공동임베디드소프트웨어 F012 전공과목 4 5 김기형 4 화D 수1 수2 목C 팔410
-자료구조및실습 F102 전공과목 4 5 ATTIQUEMUHAMMAD 4 월1 월2 목A 목B 성333 영어
+Software
+ComputerProgramDesign F050 Major 3 3 WhangWonJun 3 Fri4 Fri5 Fri6 Pal328 
+ComputerProgramDesign F052 Major 3 3 JungTaeSun 3 Tue4 Tue5 Tue6 Pal328 
+ComputerProgramDesign F053 Major 3 3 BaekHoGi 3 Tue4 Tue5 Tue6 Pal333 
+ComputerProgramming F046 Major 3 3 WhangWonJun 2 WedB FriB Pal309
+ComputerProgramming F047 Major 3 3 KimMinGu 2 MonB ThuB Pal325
+ComputerProgramming F048 Major 3 3 ByeunGangJun 2 TueA FriA Pal410
+ComputerCommunication F045 Major 3 3 JoYoungJong 2 MonE WedE Pal409
+ComputerNetwork F070 Major 3 3 NoByungHee 2 MonC WedC Pal108 
+ComputerNetwork F071 Major 3 3 NoByungHee 2 MonE WedE Pal309 
+ComputerNetwork F072 Major 3 3 PAULRAJIB 2 TueE FriE Pal309
+ComputerArchitecture F042 Major 3 3 AnJeongSeob 2 WedD FriD Pal309
+ComputerArchitecture F043 Major 3 3 ParkSeungGyu 2 MonC WedC Pal309
+ComputerArchitecture F044 Major 3 3 HongManPyo 2 MonC WedC Pal325
+CreativeSoftwareIntroduction F076 Major 3 3 ChoeJaeYeong 2 MonD ThuD Pal309
+FoundingPractice2 F088 Major 3 3 YunDaeGyun 0 Won101
+EnglishSelfDirectedProject F087 Major 3 3 ChoeJaeYeong 0 Da101 
+SelfDirectedStudy2 F039 Major 3 3 RyuGiYeol 0 Pal101 
+SelfDirectedStudy1 F041 Major 3 3 CheoiYeungJun 0 Pal101 
+DiscreteMathmatic F034 Major 3 3 GoYeoungEun 2 TueA FriA Pal409
+WebSystemDesign F038 Major 4 5 OuSangYoon 4 TueC Wed3 Wed4 FriC Pal328 
+OperatingSystem F078 Major 3 3 KoJeoungGil 2 TueB ThuA Pal309 English
+OperatingSystem F080 Major 3 3 KoJeoungGil 2 TueD ThuC Pal309 English
+OpenSourceSWIntroduction F036 Major 3 3 AnByeongHyeon 3 Wed7 Wed8 Wed9 Pal410 
+OpenSourceSWIntroduction F037 Major 3 3 LeeHwanYong 3 Fri1 Fri2 Fri3 Pal111 
+Algorithm F085 Major 3 3 SonKyungA 2 TueD ThuC Pal1025 
+Algorithm F086 Major 3 3 SonKyungA 2 TueB ThuA Pal409 
+SystemProgramming F066 Major 4 5 KoYoungBae 4 MonB Mon5 Mon6 ThuB Pal410 
+WirelessNetwork F084 Major 4 5 LimJaeSung 4 WedD Wed7 Wed8 FriD Pal409 
+DigitalCircuit F073 Major 4 5 KimSeungSoo 4 MonB Mon7 Mon8 ThuB Pal409 
+ObjectOrientedAnalysisAndDesign F063 Major 3 3 LeeJeongTae 2 MonD ThuD Pal409
+ObjectOrientedAnalysisAndDesign F064 Major 3 3 KristinChung 2 TueC FriC Pal409 English
+ObjectOrientedAnalysisAndDesign F065 Major 3 3 KristinChung 2 TueE FriE Pal409 English
+Database F083 Major 3 3 JungTaeSun 2 TueF ThuE Pal325
+Database F033 Major 3 3 ByeunGangJun 2 TueC FriC Pal325
+CalculationTheory F082 Major 3 3 WiGyuBeom 2 TueF ThuE Pal309 
+SWInternship F057 Major 3 3 LeeHwanYong 0 Locus
+SWInternship F068 Major 3 3 LeeHwanYong 0 Locus
+SWInternship F029 Major 3 3 LeeHwanYong 0 Locus
+SWCapstoneDesign F077 Major 6 9 YunDaeGyun 6 MonF MonG MonH ThuF ThuG ThuH Pal334 
+SWIndustrySeminar F035 Major 1 1 RyuGiYeol 1 TueF Pal107 
+ITIntensiveCourse2 F061 Major 6 8 CheoiYeungJun 8 Wed1 Wed2 Wed3 Wed4 Wed5 Wed6 Wed7 Wed8 JSD101 
+ITIntensiveCourse1 F060 Major 6 8 LeeSeokWon 8 Mon1 Mon2 Mon3 Mon4 Mon5 Mon6 Mon7 Mon8 JSD101 
+ITProfessionalEnglish F001 Major 3 3 KimNaYung 3 Fri1 Fri2 Fri3 JSD101 English
+PublicEmbeddedSoftware F012 Major 4 5 KimGiHyeung 4 TueD Wed1 Wed2 ThuC Pal410
+DataStructureAndTraining F102 Major 4 5 ATTIQUEMUHAMMAD 4 Mon1 Mon2 ThuA ThuB Seung333 English
+
+
+

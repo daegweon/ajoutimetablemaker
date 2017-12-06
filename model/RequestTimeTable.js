@@ -1,24 +1,29 @@
+var makeTimetableStrategyFactory = require('./makeTimetableStrategyFactory.js');
 var TableCreator = require("./TableCreator.js");
 var DBFactory = require("./DBFactory.js");
-var makeTimetableStrategyFactory = require("./makeTimetableStrategyFactory.js");
+//var makeTimetableStrategyFactory = require("./makeTimetableStrategyFactory.js");
 class RequestTimetable{
 	constructor(){
 		this.selectedList = new Array();
 	}
 	create(){
 		this.tableCreator = new TableCreator();	
-		this.mongoDBAdapter = DBFactory.getMongoDBAdapter();
+		this.mongoDBAdapter = new DBFactory().getMongoDBAdapter();
+		console.log(this.mongoDBAdapter);
 	}
 	setCreateMode(Create_Mode){
 		this.createmode = Create_Mode;
-		this.sda = makeTimetableStrategyFactory.getRecommendSDAStrategy();
+		//console.log(Create_Mode);
+		//console.log('111');
+		this.sda = makeTimetableStrategyFactory.getRecommendSDAStrategy(this.mongoDBAdapter);
 		this.ctt = makeTimetableStrategyFactory.getRecommendCTTStrategy(this.tableCreator);
-		this.tableCreator.makeEmptyTimeTable();
+		this.tableCreator.makeEmptyTimeTable(this.mongoDBAdapter);
 	}
 	requestDetailCategoryList(Category_Type){
-      var DetailCategoryList = new Array();
-      var tmp =this.mongoDBAdapter.requestDetailCategoryList(Category_Type);
-      // special process;
+		var DetailCategoryList = new Array();
+      return this.mongoDBAdapter.requestDetailCategoryList(Category_Type).then(function(tmp ){
+
+	console.log("req"+tmp);
       var len = tmp.length;
       for(var i=0;i<len;i++)
       {
@@ -27,23 +32,32 @@ class RequestTimetable{
          for(var j=0;j<len2;j++)
             if(tmp[i].detailed_Type == DetailCategoryList[j])
                cnt++;
-            else
-               break;
+       
          if(cnt == 0)
-            DetailCategoryList.push(tmp[i].detailed_Type);
-      }
-      return JSON.stringify(DetailCategoryList);
+		  {
+			  DetailCategoryList.push(tmp[i].detailed_Type);
+			  console.log("cmp"+typeof DetailCategoryList[0]);
+			  console.log("cmp"+typeof tmp[i].detailed_Type);
+		  }
+		}
+      return DetailCategoryList;
+	  });
+      // special process;
    }
    requestClassList(Detailed_Type){
-      return this.sda.requestClassList(Detailed_Type);
+      return this.sda.requestClassList(Detailed_Type).then(function(classNameList){
+		  console.log("req"+classNameList.length);
+	  	return classNameList;
+	  });
    }
    selectClass(ClassNameList){
       var len = ClassNameList.length;
       for(var i=0; i< len;i++)
          {
-            var lst =this.mongoDBAdapter.selectClass(classNameList);
-            for(var j=0;j<a.length;a++)
-            selectedList.push(lst[j]);
+            this.mongoDBAdapter.selectClass(ClassNameList[i]).then(function(data){
+				for(var j=0;j<data.length;j++)
+					this.selectedList.push(data[j]);
+			});
          }
 
    }
@@ -89,8 +103,7 @@ class RequestTimetable{
       this.tableCreator = null;
       this.mongoDBAdapter=null;
    }
-
-
 }
+
 
 module.exports = RequestTimetable;

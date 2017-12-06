@@ -1,23 +1,34 @@
 var DBFactory = require('./DBFactory');
+var MongoDBAdapter = require('./MongoDBAdapter.js');
+
 class RecommendSDAStrategy{
+	constructor(mongoDBAdapter)
+	{
+		this.mongoDBAdapter = mongoDBAdapter;
+	}
    requestClassList(Detailed_Type){
-      this.mongoDBAdapter = DBFacory.getMongoDBAdapter();
       var classNameList = new Array();
-      var tmpList = mongoDBAdapter.requestClassList(Detailed_Type);
-      //special process
+      return this.mongoDBAdapter.requestClassList(Detailed_Type).then(function(tmpList){
+	  
       var len = tmpList.length;
+	console.log("sda"+tmpList.length);
       for(var i=0;i<len;i++)
       {
          var cnt=0;
-         var len2 = ClassList.length;
+         var len2 = classNameList.length;
          for(var j=0;j<len2;j++)
-            if(tmp[i].className == ClassList[j])
+            if(tmpList[i].className == classNameList[j])
                cnt++;
-            else
-               break;
+            //else
+              // break;
          if(cnt==0)
-            ClassList.push(tmp[i].className)   
+            classNameList.push(tmpList[i].className)   
       }
-      return JSON.stringify(ClassList);
+		 console.log("sda"+classNameList.length);
+      return classNameList;
+   	});
    }
+	  
+      //special process
 }
+module.exports = RecommendSDAStrategy;

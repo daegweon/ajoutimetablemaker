@@ -3,12 +3,12 @@ var fs = require('fs');
 var RTT = require('./ResultTimeTable.js');
 var path = require('path');
 var filepath = path.join(__dirname,'major.txt');
-
+var detailList = Array();
 class MongoDBAdapter{
 
 		createClass(){
 	
-		/*var data=fs.readFileSync(filepath, 'utf8');
+		var data=fs.readFileSync(filepath, 'utf8');
 		//console.log(data);
 		var starr = data.split('\n');
 		console.log(starr.length);
@@ -37,15 +37,15 @@ class MongoDBAdapter{
 			});
 			console.log(i);
 			
-		}*/
-			Class.find(function(err,classes){
+		}
+			/*Class.find(function(err,classes){
 				//console.log(classes);
 				console.log(classes[0].className);
 				var a =JSON.stringify(classes);
 				var b = JSON.parse(a);
 				console.log(b[0].className);
 				console.log(a[0]);
-			})
+			})*/
 	}
 
 	saveResultTable(resultClassList, user_id, table_name){
@@ -56,42 +56,25 @@ class MongoDBAdapter{
 		rtt.save();
 	}
 	selectClass(className){
-		var classList = null;
-		Class.find({ className : className}, function(err, classes){
-			classList = classes;
-		})
-		var i=0;
-		while(i<30000000){
-			i++;
-		}
-		return classList;
+		return Class.find({ className : className}).then(function(classes){
 		
+			return classes;
+		})
 	}
 	requestDetailCategoryList(Category_Type){
-	
-		var detailList = null;
-		Class.find({category_Type : Category_Type}, function(err,classes){
-		detailList= classes;
-		});
-		var i=0;
-		while(i<30000000){
-			i++;
-		}
-		return detailList;
 
+		return Class.find({category_Type : Category_Type}).then(function(classes){
+			console.log(classes.length);
+			return classes;
 
+		})
 	}
 	requestClassList(Detailed_Type){
-		var a=null;
-		Class.find({detailed_Type : Detailed_Type}, function(err, classes){
-			a = classes;
+		return Class.find({detailed_Type : Detailed_Type}).then(function(classes){
+			console.log(classes.length);
+			return classes;
 		});
-		var i=0;
-		while(i<30000000){
-			i++;
-		}
-		return a;
-
 	}
+
 }
 module.exports = MongoDBAdapter;

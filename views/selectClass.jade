@@ -1,0 +1,82 @@
+doctype html
+html
+    head
+        // Koream Import
+        meta(charset='utf-8')
+        title  selectClass
+        link(type='text/css', rel='stylesheet', href='stylesheets/selectClass.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    body
+        #basic_Section
+            div#baseCategory(style='background-color: #e3e8ef; min-height:100%;')
+                table.tg
+                    tr
+                        th.tg-kuzc Category
+                    tr
+                        td.tg-yw4l
+                            .categoryList(onclick="selectArea('Major')") 전공
+                            .categoryList(onclick="selectArea('Liberal_Arts')") 교양
+                            .categoryList(onclick="selectArea('Basic')") 기초과목
+                            .categoryList(onclick="selectArea('Liberal_Arts_by_Area')") 영역별교양
+                    tr
+                        td#DetailedTG.tg-Detailed
+
+                #buttonSection
+                    table.tg2
+                        tr
+                            th#cancel.tg2-655q(onclick='addCheck()') cancel
+                            th#confirm2.tg26755q(onclick = 'selectClass()') confrim
+            p#category_name(style='display : none') name
+            #insertform.w3-container(style='display : none')
+                form#checkboxform(role='form', method='post', action='http://localhost:8080/select')
+                    input#confirm(type='button', value='확인', onclick='Check(this.form);')
+
+                    //input(type='checkbox', name='cb1A', value='a')
+                    //|  a
+                    //br
+                    //input(type='checkbox', name='cb1B', value='b')
+                    //|  b
+                    //br
+                    //input(type='checkbox', name='cb1C', value='c')
+                    //|  c
+                    //br
+                    //input(type='checkbox', name='cb1D', value='d')
+                    //|  d
+                    //br
+                    //input(type='checkbox', name='cb1E', value='e')
+                    //|  e
+
+                    br
+                    br
+                    br
+                #SelectedList
+
+        #essential_session
+            div
+                #essentialform.w3-container(style='display : none')
+                    form#checkboxform_essential(role='form', method='post', action='http://localhost:8080/select')
+                        input#confirm_essential(type='button', value='확인', onclick='setClass(this.form);')
+
+                        //input(type='checkbox', name='cb1A', value='a')
+                        //|  a
+                        //br
+                        //input(type='checkbox', name='cb1B', value='b')
+                        //|  b
+                        //br
+                        //input(type='checkbox', name='cb1C', value='c')
+                        //|  c
+                        //br
+                        //input(type='checkbox', name='cb1D', value='d')
+                        //|  d
+                        //br
+                        //input(type='checkbox', name='cb1E', value='e')
+                        //|  e
+
+                        br
+                        br
+                        br
+                        input#user_set_credit(type='number', name='user_set_credit', size='10', maxlength='5', value='15', style="height:30px; width:200px;")
+                    #EssentialList
+
+        script(type='text/javascript', src='javascripts/selectClass_front.js')
+

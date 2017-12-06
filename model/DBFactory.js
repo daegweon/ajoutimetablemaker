@@ -1,6 +1,12 @@
 var MongoDBAdapter = require('./MongoDBAdapter.js');
+let instance = null;
 class DBFactory{
-     static getMongoDBAdapter(){
+	constructor(){
+		if(!instance){
+			instance = this;
+		}
+	}
+     getMongoDBAdapter(){
 		//if(this.mongoDBAdapter == null){
 			//this.mongoDBAdapter = new MongoDBAdapter();
 		//}

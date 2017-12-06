@@ -8,9 +8,10 @@ var bodyParser = require('body-parser');
 var users = require('./routes/users');
 var index=require('./routes/index');
 var login=require('./routes/login');
+var selectClass = require('./routes/selectClass');
+var selectTable = require('./routes/selectTable');
 
 var app = express();
-// view engine setup
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/test', {useMongoClient:true}); // 기본 설정에 따라 포트가 상이 할 수 있습니다.
@@ -19,7 +20,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
 	console.log("mongo db connection OK.");
 });
-
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -34,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/home',login);
+app.use('/select', selectClass);
+app.use('/table', selectTable);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,9 +56,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000,function(){
+app.listen(8080,function(){
   console.log('Connected 3000 port!')
 });
 
 
 module.exports = app;
+
