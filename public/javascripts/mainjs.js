@@ -1,12 +1,11 @@
 /**
  * Created by KimHeeYeon on 2017. 11. 30..
  */
-//<<<<<<< HEAD
-//=======
 
-//>>>>>>> origin/HeeYeon
+var incomeCount = 0;
 function on() {
     document.getElementById("overlay").style.display = "block";
+    incomeCount=1;
 }
 
 function off() {
@@ -76,9 +75,7 @@ function add() {
         '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30',
         '17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00']
     var target = document.getElementById("dynamicTable");
-    var row_num = document.getElementById("row_num").value;
-    var currentRowIndex = target.rows.length;
-    for (i=0; i<row_num;i++){
+        for (i=0; i<row_num;i++){
         var row = target.insertRow();
         var cell_0 =row.insertCell(0);cell_0.id="time_"+(i+1);cell_0.innerHTML=" "+time[i]+"/"+cell_0.id
         var cell_1=row.insertCell(1);cell_1.id="Mon_"+(i+1);cell_1.innerHTML=" "+cell_1.id;
@@ -88,14 +85,102 @@ function add() {
         var cell_5=row.insertCell(5);cell_5.id="Fri_"+(i+1);cell_5.innerHTML=" "+cell_5.id;
     }
 }
-/*
-$.ajax({
-    url: "/select",
-    type: "POST",
-    dataType : "json",
-    data: {create_mode:this.id},
-    success:function(response) {
-        console.log("ok");
-        //window.location.href = '/select';
+
+function makeTable(){
+	var incomeCount=0;
+	console.log(incomeCount);
+    if(incomeCount >0) {
+        $.ajax({
+            type: "GET",
+            url: "/select/getResultTable"
+        }).done(function (msg) {
+            document.getElementById('TableNameSide').innerText = msg[1];
+            add();
+
+            var lectureLength = msg[0].ResultClassList.length;
+            for (var j = 0; j < lectureLength; j++) {
+                var color = '#'; // hexadecimal starting symbol
+                var letters = ['9cd6bc', '9cb0d6', 'd8cd97', 'd6a295', 'c4899c', 'c499d8', 'c1d88f', '7799ce'];
+                color += letters[Math.floor(Math.random() * letters.length)];
+
+                var lectureTimeNum = msg[0].ResultClassList[j].LectureTime.length;
+                for ( var i = 0; i < lectureTimeNum; i++) {
+                    var cellDay = msg[0].ResultClassList[j].LectureTime[i].slice(0, 3);
+                    var checkTime = msg[0].ResultClassList[j].LectureTime[i][3];
+
+                    if (isNaN(checkTime)) {
+                        if (checkTime == 'A') {
+                            for (var k = 1; k < 4; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 2)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'B') {
+                            for (var k = 4; k < 7; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 5)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'C') {
+                            for (var k = 7; k < 10; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 8)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'D') {
+                            for (var k = 10; k < 13; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 11)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'E') {
+                            for (var k = 13; k < 16; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 14)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'F') {
+                            for (var k = 16; k < 19; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 17)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'G') {
+                            for (var k = 19; k < 22; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 20)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        } else if (checkTime == 'H') {
+                            for (var k = 22; k < 25; k++) {
+                                var checkTable = cellDay + "_" + k;
+                                if (k == 23)
+                                    document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                document.getElementById(checkTable).style.backgroundColor = color;
+                            }
+                        }
+                    } else {
+                        for (var m = 1; m < 13; m++) {
+                            if (parseInt(checkTime) == m) {
+                                for(var a = 2*m ; a < 2*(m+1); a++) {
+                                    var checkTable = cellDay + i + "_" + m;
+                                    if(a == 2*m)
+                                        document.getElementById(checkTable).innerText = msg[0].ResultClassList[j].className;
+                                    document.getElementById(checkTable).style.backgroundColor = color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        });
     }
-})*/
+}

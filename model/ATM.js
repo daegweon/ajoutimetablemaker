@@ -44,8 +44,8 @@ class ATM{
 	changeClass(DeleteClass, ReplaceClass, Table_id){
 		this.requestTimetable.changeClass(DeleteClass, ReplaceClass, Table_id);
 	}
-	confirmTimeTable(Table_id, user_id){
-		this.requestTimetable.confirmTimeTable(Table_id, user_id); 
+	confirmTimeTable(Table_id, Table_name, user_id){
+		this.requestTimetable.confirmTimeTable(Table_id, Table_name, user_id); 
 	}
 	end(){
 		this.requestTimetable.destroy();

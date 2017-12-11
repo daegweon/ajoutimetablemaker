@@ -1,6 +1,6 @@
 var Class = require('./Class.js');
 var fs = require('fs');
-var RTT = require('./ResultTimeTable.js');
+var RTT = require('./ResultTimeTableSchema.js');
 var path = require('path');
 var filepath = path.join(__dirname,'major.txt');
 var detailList = Array();
@@ -50,9 +50,9 @@ class MongoDBAdapter{
 
 	saveResultTable(resultClassList, user_id, table_name){
 		var rtt = new RTT();
-		rtt.resultClassList =resultClassList;
-		rtt.user_id = user_idl
-		rtt.table_name = table_name;
+		rtt.ResultClassList =resultClassList;
+		rtt.User_id = user_id;
+		rtt.Table_name = table_name;
 		rtt.save();
 	}
 	selectClass(className){

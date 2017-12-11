@@ -73,5 +73,38 @@ router.post('/table', function(req,res,next){
 	console.log(tttt.length + ""+ tttt[0].ResultClassList);
 	res.send(tttt);
 })
+router.get('/tableinfo', function(req,res,next){
+	console.log('tableinfo' + tttt);
+	res.json(tttt);
+})
+
+var ResultTable_id;
+var ResultTable_name;
+var ResultTable_user_id;
+
+var Result = new Array();
+
+router.post('/selectedTable', function(req,res,next){
+   console.log('selectTable' );
+   //atm.confirmTimeTable(req.body.Table_id, req.body.Table_name, req.body.user_id);
+
+    ResultTable_id = req.body.Table_id;
+    ResultTable_name = req.body.Table_name;
+    ResultTable_user_id= req.body.user_id;
+
+	console.log(tttt[ResultTable_id]);
+
+    Result.push(tttt[ResultTable_id]);
+    Result.push(ResultTable_name);
+    Result.push(ResultTable_user_id);
+
+   res.send(tttt[req.body.Table_id]);
+})
+
+router.get('getResultTable',function(req,res,next){
+   console.log('getresultTable');
+
+   res.send(Result);
+})
 
 module.exports = router;

@@ -96,7 +96,8 @@ class RequestTimetable{
       return this.tableCreator.makeTimeTable(this.selectedList, JSON.parse(this.EssentialList), this.set_user_credit);
    }
    selectTimeTable(Table_id){
-      return this.tableCreator.selectTimeTable(Table_id);
+      
+	   return this.tableCreator.selectTimeTable(Table_id);
    }
    changeClass(DeleteClass, ReplaceClass, Table_id){
       this.tableCreator.changeClass(DeleteClass, ReplaceClass, Table_id);

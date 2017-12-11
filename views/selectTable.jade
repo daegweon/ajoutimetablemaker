@@ -14,7 +14,7 @@ html
             button#selectTabl4.tablinks(onclick="openTable(event, 'Select4')") Select4
         #Select1.tabcontent
             h3 This is Select1. To Select this TimeTable, Please press Confirm Button
-            table#dynamicTable(border='0', align='center')
+            table#dynamicTable1(border='0', align='center')
                 thead
                     tr(align='center')
                         th.tg-yw4l 시간/요일
@@ -25,8 +25,6 @@ html
                         th.tg-yw4l 금
                 tbody
                     tr
-            input#row_num(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
-            input(type='button', value='add', onclick='add()')
             td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
         #Select2.tabcontent
             h3 This is Select2. To Select this TimeTable, Please press Confirm Button
@@ -41,8 +39,6 @@ html
                         th.tg-yw4l2 금
                 tbody
                     tr
-            input#row_num2(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
-            input(type='button', value='add', onclick='add()')
             td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
         #Select3.tabcontent
             h3 This is Select3. To Select this TimeTable, Please press Confirm Button
@@ -57,8 +53,6 @@ html
                         th.tg-yw4l3 금
                 tbody
                     tr
-            input#row_num3(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
-            input(type='button', value='add', onclick='add()')
             td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
         #Select4.tabcontent
             h3 This is Select4. To Select this TimeTable, Please press Confirm Button
@@ -73,12 +67,15 @@ html
                         th.tg-yw4l4 금
                 tbody
                     tr
-            input#row_num4(type='number', name='row_num', size='10', maxlength='5', value='20', style='height:30px; width:200px')
-            input(type='button', value='add', onclick='add()')
             td.backgroundtable-yw4l(colspan='2', onclick='clickTable()', style='height:100%')
         div
             table.tg
                 tr
+                    th
+                        input(type="text" name="enter" value="tableName" id="table_name")
+                tr
                     th#cancel.tg-7pe6(onclick='cancel()') CANCEL
-                    th#confirm.tg-vfn9(onclick='confirm()') CONFIRM
+                    th#confirm.tg-vfn9(onclick='confirmTimeTable()') CONFIRM
         script(type='text/javascript', src='javascripts/selectTableJs.js')
+        script.
+            getTempTimeTable()

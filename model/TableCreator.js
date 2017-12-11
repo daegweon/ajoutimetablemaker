@@ -45,23 +45,28 @@ function iscross(class1, class2){
 	}
 	return cnt>0?true:false;
 }
-function req(essenList,start_idx,tmplist){
+function req(essenList,start_idx, tmplist){
 
 	var len = essenList.length;
 	if(start_idx == len) {
 		flag = true;
 		return tmplist;
 	}
-	for(var i= start_idx; i<len;i++)
+	for(var i= 0; i<len;i++)
 	{
 		var cnt=0;
 		for(var j = 0; j< tmplist.length;j++)
 			if(iscross(essenList[i], tmplist[j]))
 				cnt++;
+		if(cnt == tmplist.length)
+		{
+			flag = true;
+			return tmplist;
+		}
 		if(cnt==0)
 		{
 			tmplist.push(essenList[i]);
-			var tt =req(essenList, i+1, tmplist);
+			var tt =req(essenList, start_idx+1, tmplist);
 			if(flag == true)
 				return tt;
 		}
@@ -80,12 +85,10 @@ class TableCreator{
 			if(tempTimeTableList[i].table_id ==Table_id)
 			{
 				
-				var obj = this.tempTimeTableList[i].getTimeTable();
+				var obj = this.tempTimeTableList[i];
 				return obj;
 			}
 		}
-	
-
 	}
 	makeTimeTable(SelectedList, EssentialList, set_user_credit){
 
@@ -107,12 +110,14 @@ class TableCreator{
 		{
 			flag = false;
 			console.log('make'+'start');
-			var classList = req(tmpList,i,new Array());
+			var kk = new Array();
+			kk.push(tmpList[i]);
+			var classList = req(tmpList,i,kk);
 			console.log('classlist'+classList);
 			var credit_sum=0;
-			for(var i=0;i<classList.length;i++)
+			for(var j=0;j<classList.length;j++)
 			{
-				credit_sum += classList[i].credit;
+				credit_sum += classList[j].credit;
 			}
 			if(credit_sum > set_user_credit){
 				while(credit_sum > set_user_credit && classList.length >0)
@@ -122,17 +127,17 @@ class TableCreator{
 				}
 			}
 			else{
-				for(var i=0; i< SelectedList.length; i++){
+				for(var p=0; p< SelectedList.length; p++){
 					var cnt=0;
 					for(var j =0; j< classList.length; j++)
 					{
-						if(iscross(SelectedList[i], classList[j]))
+						if(iscross(SelectedList[p], classList[j]))
 							cnt++;
 					}
-					if(cnt ==0 && credit_sum+ SelectedList[i].credit <= set_user_credit)
+					if(cnt ==0 && credit_sum+ SelectedList[p].credit <= set_user_credit)
 					{
-						credit_sum+=SelectedList[i].credit;
-						classList.push(SelectedList[i]);
+						credit_sum+=SelectedList[p].credit;
+						classList.push(SelectedList[p]);
 					}
 				}
 			}
@@ -141,7 +146,11 @@ class TableCreator{
 			temptimeTable.makeRandom(classList);
 			console.log('make temp');
 			this.tempTimeTableList.push(temptimeTable);
-			if(this.tempTimeTableList.length >4)break;
+			console.log(this.tempTimeTableList.length);
+			if(this.tempTimeTableList.length == 4){
+				console.log(this.tempTimeTableList.length + " 123123");
+				break;
+			}
 		}
 		console.log('+++'+this.tempTimeTableList);
 		return this.tempTimeTableList;

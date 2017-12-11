@@ -4,7 +4,6 @@ var a = new Array();
 function selectArea(Category_Type){
 
     var parentElement = document.getElementById('DetailedTG');
-    // var addDetailedCategory = document.createElement('div');
     console.log("selectArea : " + Category_Type);
 
     $.ajax({
@@ -13,21 +12,17 @@ function selectArea(Category_Type){
         data: { Category_Type: Category_Type },
         dataType: 'json',
     }).done(function( msg ) {
-        //console.log(msg);
 		var Category_nameList = msg;
         var getAllDivElement = document.getElementsByTagName('span');
         for(var i = 0; i < getAllDivElement.length; i++){
             getAllDivElement[i].style.display = "none";
         }
-		//document.getElementById('basic_Section').style.display = 'block';
-        //document.getElementById('baseCategory').style.display = "block";
 
         var CategoryLength = Category_nameList.length;
         for ( var i = 0; i < CategoryLength; i++){
 
             var addDetailedCategory = document.createElement('span');
             addDetailedCategory.id = Category_nameList[i];
-            //var categoryClassName = Category_Type + 'Category';
             addDetailedCategory.classList.add('CategoryList');
 
             var label = document.createElement('label');
@@ -36,37 +31,16 @@ function selectArea(Category_Type){
 
 			label.id = Category_nameList[i]+'1';
 			var tmpid = Category_nameList[i];
-			//console.log(tmpid);
-            parentElement.appendChild(addDetailedCategory);
+			var brtag = new Array();
+			parentElement.appendChild(addDetailedCategory);
             parentElement.appendChild(label);
-          //  console.log(addDetailedCategory.id);
-			//console.log(document.getElementById(addDetailedCategory.id));
+			brtag[i] = document.createElement('br');
+			parentElement.appendChild(brtag[i]);
 			document.getElementById(label.id).addEventListener("click",function(){
-                //console.log(tmpid);
 				selectDetailArea(tmpid);
             },false);
         }
     });
-    /*
-    var addDetailedCategory = document.createElement('div');
-
-    addDetailedCategory.id = "software";
-
-    var label = document.createElement('label');
-    label.htmlFor = addDetailedCategory.id;
-    label.appendChild(document.createTextNode(addDetailedCategory.id));
-
-    //addDetailedCategory.addEventListener("click", selectDetailArea(Category_Type));
-    //addDetailedCategory.onclick =selectDetailArea('Major');
-    //addDetailedCategory.on('click',selectDetailArea('Major'));
-    parentElement.appendChild(addDetailedCategory);
-    addDetailedCategory.appendChild(label);
-    document.getElementById("software").addEventListener("click",function(Category_Type){
-        selectDetailArea(Category_Type);
-    });*/
-
-    //selectDetailArea(Category_Type)
-
 }
 
 //Detailed Type을 보내고 name list를 받는다. 이것들을 사용자에게 checkbox로서 띄워준다,.
@@ -102,7 +76,6 @@ var selectDetailArea = function(){
 }*/
 
 function addCheck(className){
-    //var checkboxList = JSON.parse(classNameList);
     var parentElement = document.getElementById('checkboxform');
     var checkbox = document.createElement('input');
     checkbox.type = "checkbox";
@@ -119,9 +92,7 @@ function addCheck(className){
 	checkbox.classList.add('DetailedCategoryList');
 }
 
-//checkbox에 있는 chekcedlist를 selected list 로서 전송
 function Check(form){
-    //'확인' 버튼을 클릭했을 때 실행되는 메서드
 
     var msg = "";
 	var arr = new Array();
@@ -142,7 +113,6 @@ function Check(form){
 		console.log('check ok');
 	});
 
-	// inner ui change
     document.querySelector('#SelectedList').innerHTML = msg;
 }
 
@@ -159,7 +129,6 @@ function selectClass(){
     document.getElementById('basic_Section').style.display = "none";
     document.getElementById('essential_session').style.display = 'block';
 	document.getElementById('essentialform').style.display = 'block';
-    /*checkbox 만들기만 + text*/
     var parentElement = document.getElementById('checkboxform_essential');
 
     for( var i = 0; i < a.length; i++){
@@ -173,16 +142,10 @@ function selectClass(){
         var label = document.createElement('label');
         label.htmlFor = a[i];
         label.appendChild(document.createTextNode(a[i]));
-        //checkbox.classList.add('EssentialList');
 
         parentElement.appendChild(checkbox);
         parentElement.appendChild(label);
 
-        /*
-        이건 무슨 코드였
-        var addEssentialList = document.createElement('div');
-        addEssentialList.id = a[i].className;
-        addEssentialList.classList.add('EssentialList');*/
     }
 }
 
@@ -195,7 +158,6 @@ function setClass(){
     var selectedEssentialList = new Array();
     for (i = 0; i < checkedContents.length; i++) {
         if(checkedContents[i].checked) {
-            //msg += checkedContents[i].value + " ";
             selectedEssentialList.push(checkedContents[i].value);
         }
     }
@@ -209,54 +171,10 @@ function setClass(){
         data: { EssentialList : JSON.stringify(selectedEssentialList), set_user_credit : user_credit}
     }).done(function( msg ) {
 		console.log(msg);
-		window.location.replace('/select/table');
+		window.location.replace('/table');
 		
     });
 }
 
 
-/*
-var getJSON = function(url, callback) {
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-
-    xhr.onload = function() {
-
-        var status = xhr.status;
-
-        if (status == 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status);
-        }
-    };
-
-    xhr.send();
-};
-
-getJSON('http://time.jsontest.com',  function(err, data) {
-
-    if (err != null) {
-        console.error(err);
-    } else {
-        var classname = `Date: ${data.date}`
-
-        console.log(classname);
-    }
-});*/
-
-
-/*
-var parentElement = document.getElementById('myParentElement');
-
-if(parentElement != null)
-   parentElement.appendChild(myChildElement);
-
-    var newCheckBox = document.createElement('input');
-    newCheckBox.type = 'checkbox';
-    newCheckBox.id = 'ptworkinfo' + count; // need unique Ids!
-    newCheckBox.value = check_value[count] + '<br/>';
-
-    parentElement.appendChild(newCheckBox);*/

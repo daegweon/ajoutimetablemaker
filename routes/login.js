@@ -10,7 +10,7 @@ var system;
 
 //>>>>>>> origin/HeeYeon
 router.get('/', function(req, res, next) {
-
+	res.render('mainpage',{incomeCount:1});
 });
 
 router.post('/', function (req, res, next) {
